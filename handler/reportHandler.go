@@ -3,15 +3,18 @@ package handler
 import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
+	"github.com/pyaqubzade/knative/client"
 	"github.com/pyaqubzade/knative/config"
+	"github.com/pyaqubzade/knative/model"
 )
 
 type reportHandler struct {
 	validate *validator.Validate
+	client   client.Client
 }
 
-func NewHandler(router fiber.Router) {
-	h := &reportHandler{validator.New()}
+func NewHandler(router fiber.Router, client client.Client) {
+	h := &reportHandler{validator.New(), client}
 	router.Get(config.PublicRootPath+"/hello", h.SendLocalReport)
 	router.Get(config.PublicRootPath+"/bye", h.SendExternalReport)
 }
@@ -31,12 +34,11 @@ func (h *reportHandler) SendLocalReport(ctx *fiber.Ctx) error {
 	//	return err
 	//}
 
-	resultMessage := "Hello World"
 	//if err != nil {
 	//	return err
 	//}
 
-	ctx.Response().SetBody([]byte(resultMessage))
+	ctx.JSON(model.Data{Value: "Hello World"})
 	return nil
 }
 
@@ -55,11 +57,11 @@ func (h *reportHandler) SendExternalReport(ctx *fiber.Ctx) error {
 	//	return err
 	//}
 	//
-	resultMessage := "Bye"
-	//if err != nil {
-	//	return err
-	//}
+	result, err := h.client.GetBye(ctx)
+	if err != nil {
+		return err
+	}
 
-	ctx.Response().SetBody([]byte(resultMessage))
+	ctx.JSON(result)
 	return nil
 }

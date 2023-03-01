@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/pyaqubzade/knative/client"
 	"github.com/pyaqubzade/knative/config"
 	"github.com/pyaqubzade/knative/errhandler"
 	"github.com/pyaqubzade/knative/handler"
@@ -33,14 +34,15 @@ func main() {
 	//actionRepo := db.NewUserActionRepository(dbCon)
 	//fmsService := service.NewFmsService(actionRepo)
 	//carfaxClient := client.NewCarfaxClient()
-	//incidentClient := client.NewIncidentClient()
+	//incidentClient := client.NewClient()
 	//smsRadarClient := client.NewSMSRadarClient()
 	//pdfConverterClient := client.NewPDFConverterClient()
 	//
 	//reportService := service.NewReportService(reportRepo, fmsService, carfaxClient, incidentClient, smsRadarClient,
 	//	pdfConverterClient)
+	c := client.NewClient()
 	handler.NewHealthHandler(app)
-	handler.NewHandler(api)
+	handler.NewHandler(api, c)
 
 	port := config.Props.Port
 	log.Info("Starting server at port: ", port)

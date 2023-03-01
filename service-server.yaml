@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: knative-go-hello-server
+  namespace: default
+spec:
+  template:
+    spec:
+      containerConcurrency: 1
+      containers:
+        - image: pyaqubzade/knative-go-hello
+          ports:
+            - containerPort: 8080
