@@ -15,21 +15,21 @@ const PublicRootPath = "/v1/public/knative"
 const DefaultRequestTimeout = 30 * time.Second
 
 type args struct {
-	Port            string `arg:"env:PORT"`
-	LogLevel        string `arg:"env:LOG_LEVEL"`
-	DBAutoURL       string `arg:"env:DB_AUTO_URL"`
-	DBAutoUser      string `arg:"env:DB_AUTO_USER"`
-	DBAutoPass      string `arg:"env:DB_AUTO_PASS"`
-	DBAutoName      string `arg:"env:DB_AUTO_NAME"`
-	InsuranceURL    string `arg:"env:INSURANCE_API_URL"`
-	InsuranceUser   string `arg:"env:INSURANCE_API_USER"`
-	InsurancePass   string `arg:"env:INSURANCE_API_PASS"`
-	SMSRadarURL     string `arg:"env:SMS_RADAR_API_URL"`
-	SMSRadarUser    string `arg:"env:SMS_RADAR_API_USER"`
-	SMSRadarPass    string `arg:"env:SMS_RADAR_API_PASS"`
-	PDFConverterURL string `arg:"env:MS_PDF_CONVERTER_URL"`
-	CarfaxURL       string `arg:"env:CARFAX_URL"`
-	CarfaxAPIKey    string `arg:"env:CARFAX_API_KEY"`
+	Port     string `arg:"env:PORT"`
+	LogLevel string `arg:"env:LOG_LEVEL"`
+	//DBAutoURL       string `arg:"env:DB_AUTO_URL"`
+	//DBAutoUser      string `arg:"env:DB_AUTO_USER"`
+	//DBAutoPass      string `arg:"env:DB_AUTO_PASS"`
+	//DBAutoName      string `arg:"env:DB_AUTO_NAME"`
+	//InsuranceURL    string `arg:"env:INSURANCE_API_URL"`
+	//InsuranceUser   string `arg:"env:INSURANCE_API_USER"`
+	//InsurancePass   string `arg:"env:INSURANCE_API_PASS"`
+	//SMSRadarURL     string `arg:"env:SMS_RADAR_API_URL"`
+	//SMSRadarUser    string `arg:"env:SMS_RADAR_API_USER"`
+	//SMSRadarPass    string `arg:"env:SMS_RADAR_API_PASS"`
+	//PDFConverterURL string `arg:"env:MS_PDF_CONVERTER_URL"`
+	//CarfaxURL       string `arg:"env:CARFAX_URL"`
+	//CarfaxAPIKey    string `arg:"env:CARFAX_API_KEY"`
 }
 
 // Props is global variable for environment variables usage

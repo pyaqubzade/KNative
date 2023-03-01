@@ -2,12 +2,10 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/pyaqubzade/knative/config"
 	"github.com/pyaqubzade/knative/errhandler"
 	"github.com/pyaqubzade/knative/handler"
-	"github.com/pyaqubzade/knative/middleware"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -24,11 +22,11 @@ func main() {
 		ErrorHandler:          errhandler.ErrorHandler,
 	})
 	app.Use(recover.New())
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "https://avtoyoxla.az",
-		AllowMethods: "POST",
-	}))
-	app.Use(middleware.NewMDC())
+	//app.Use(cors.New(cors.Config{
+	//	AllowOrigins: "https://avtoyoxla.az",
+	//	AllowMethods: "POST",
+	//}))
+	//app.Use(middleware.NewMDC())
 	api := app.Group("/api")
 
 	//reportRepo := db.NewReportRepository(dbCon)

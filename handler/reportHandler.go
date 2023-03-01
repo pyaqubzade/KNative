@@ -12,8 +12,8 @@ type reportHandler struct {
 
 func NewHandler(router fiber.Router) {
 	h := &reportHandler{validator.New()}
-	router.Post(config.PublicRootPath+"/hello", h.SendLocalReport)
-	router.Post(config.PublicRootPath+"/bye", h.SendExternalReport)
+	router.Get(config.PublicRootPath+"/hello", h.SendLocalReport)
+	router.Get(config.PublicRootPath+"/bye", h.SendExternalReport)
 }
 
 func (h *reportHandler) SendLocalReport(ctx *fiber.Ctx) error {

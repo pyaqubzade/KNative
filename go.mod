@@ -6,7 +6,6 @@ require (
 	github.com/alexflint/go-arg v1.4.3
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/gofiber/fiber/v2 v2.36.0
-	github.com/google/go-querystring v1.1.0
 	github.com/google/uuid v1.1.2
 	github.com/jackc/pgtype v1.12.0
 	github.com/joho/godotenv v1.4.0
@@ -37,7 +36,6 @@ require (
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.38.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
