@@ -1,0 +1,5 @@
+*               @PB-Innovation/AvtoYoxla
+.github/        @PB-Innovation/DevOps
+config/         @PB-Innovation/DevOps
+infra/          @PB-Innovation/SRE
+CODEOWNERS      @PB-Innovation/SRE

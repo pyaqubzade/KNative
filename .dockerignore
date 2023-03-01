@@ -1,0 +1,7 @@
+.github/
+.git/
+Dockerfile
+.gitignore
+README.md
+sonar-project.properties
+CODEOWNERS
