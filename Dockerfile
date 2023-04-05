@@ -22,9 +22,12 @@ FROM alpine
 COPY --from=builder /go/src/app .
 
 COPY config/profiles/default.env ./config/profiles/
+COPY ./infra/entrypoint-parent.sh .
+
+RUN chmod 500 entrypoint-parent.sh
 
 # Expose port 80 to the outside world
 EXPOSE 8080
 
 # Command to run the executable
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./entrypoint-parent.sh"]

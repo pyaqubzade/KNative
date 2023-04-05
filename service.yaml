@@ -5,9 +5,23 @@ metadata:
   namespace: default
 spec:
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-init-first: 'true'
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-inject-secret-secrets: kv/secrets
+        vault.hashicorp.com/agent-inject-status: injected
+        vault.hashicorp.com/agent-pre-populate: 'true'
+        vault.hashicorp.com/agent-pre-populate-only: 'true'
+        vault.hashicorp.com/agent-inject-template-secrets: |
+          {{ with secret " kv/secrets" }}
+              {{ range $k, $v := .Data }}
+                  {{ $k }}="{{ $v }}"
+              {{ end }}
+          {{ end }}
     spec:
       containerConcurrency: 1
       containers:
-        - image: pyaqubzade/knative-go-hello
+        - image: pyaqubzade/knative-go-hello:v2.2
           ports:
             - containerPort: 8080

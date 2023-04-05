@@ -11,6 +11,7 @@ import (
 
 func main() {
 	config.LoadConfig()
+	log.Warning("DATA = " + config.Props.Data)
 
 	app := fiber.New(fiber.Config{
 		DisableStartupMessage: true,
