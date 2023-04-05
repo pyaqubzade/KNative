@@ -16,11 +16,3 @@ const (
 	ContextLogger      = "contextLogger"
 	ContextHeader      = "contextHeader"
 )
-
-const (
-	SuccessfulResultMessage = "✅ Təşəkkürlər! Hesabatı əldə etmək üçün e-poçt ünvanınızı yoxlaya bilərsiniz."
-	InvalidRequestMessage   = "⚠️ Hazırda hesabatlar pulsuz verildiyi üçün bir istifadəçi maksimum 3 hesabat sorğulaya " +
-		"bilər."
-	NoResultMessage = "❌Təəssüf ki, sizin axtardığınız VİN koda uyğun avtomobil məlumatları tapılmadı. VIN kodu yeni" +
-		"dən nəzərdən keçirə bilərsiniz."
-)

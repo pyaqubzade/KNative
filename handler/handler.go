@@ -8,18 +8,18 @@ import (
 	"github.com/pyaqubzade/knative/model"
 )
 
-type reportHandler struct {
+type handler struct {
 	validate *validator.Validate
 	client   client.Client
 }
 
 func NewHandler(router fiber.Router, client client.Client) {
-	h := &reportHandler{validator.New(), client}
-	router.Get(config.PublicRootPath+"/hello", h.SendLocalReport)
-	router.Get(config.PublicRootPath+"/bye", h.SendExternalReport)
+	h := &handler{validator.New(), client}
+	router.Get(config.PublicRootPath+"/hello", h.Hello)
+	router.Get(config.PublicRootPath+"/bye", h.Bye)
 }
 
-func (h *reportHandler) SendLocalReport(ctx *fiber.Ctx) error {
+func (h *handler) Hello(ctx *fiber.Ctx) error {
 	ctx.Accepts(fiber.MIMEApplicationJSON)
 
 	//request := new(model.ReportRequest)
@@ -42,7 +42,7 @@ func (h *reportHandler) SendLocalReport(ctx *fiber.Ctx) error {
 	return nil
 }
 
-func (h *reportHandler) SendExternalReport(ctx *fiber.Ctx) error {
+func (h *handler) Bye(ctx *fiber.Ctx) error {
 	ctx.Accepts(fiber.MIMEApplicationJSON)
 
 	//request := new(model.ReportRequest)

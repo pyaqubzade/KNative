@@ -1,2 +1,2 @@
-# avtoyoxla-host
-Main service for AvtoYoxla project
+# KNative
+KNative server and client for demo purposes

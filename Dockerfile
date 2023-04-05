@@ -25,7 +25,7 @@ COPY config/profiles/default.env ./config/profiles/
 COPY db/migrations ./db/migrations
 
 # Expose port 80 to the outside world
-EXPOSE 80
+EXPOSE 8080
 
 # Command to run the executable
 ENTRYPOINT ["./app"]
