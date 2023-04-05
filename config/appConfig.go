@@ -17,7 +17,7 @@ const DefaultRequestTimeout = 30 * time.Second
 type args struct {
 	Port     string `arg:"env:PORT"`
 	LogLevel string `arg:"env:LOG_LEVEL"`
-	Data     string `arg:"env:DATA"`
+	Data     string `arg:"env:ACS_CLIENT_URL"`
 }
 
 // Props is global variable for environment variables usage

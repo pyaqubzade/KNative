@@ -9,19 +9,21 @@ spec:
       annotations:
         vault.hashicorp.com/agent-init-first: 'true'
         vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/agent-inject-secret-secrets: kv/secrets
+        vault.hashicorp.com/agent-inject-secret-secrets: k8s_ufc_test/secrets
         vault.hashicorp.com/agent-inject-status: injected
-        vault.hashicorp.com/agent-pre-populate: 'true'
-        vault.hashicorp.com/agent-pre-populate-only: 'true'
         vault.hashicorp.com/agent-inject-template-secrets: |
-          {{ with secret " kv/secrets" }}
+          {{ with secret "k8s_ufc_test/secrets" }}
               {{ range $k, $v := .Data }}
                   {{ $k }}="{{ $v }}"
               {{ end }}
           {{ end }}
+        vault.hashicorp.com/agent-pre-populate: 'true'
+        vault.hashicorp.com/agent-pre-populate-only: 'true'
+        vault.hashicorp.com/auth-path: auth/k8s_ufc_test
+        vault.hashicorp.com/role: k8s_ufc_test
     spec:
       containerConcurrency: 1
       containers:
-        - image: pyaqubzade/knative-go-hello:v2.2
+        - image: pyaqubzade/knative-go-hello:v2.3
           ports:
             - containerPort: 8080

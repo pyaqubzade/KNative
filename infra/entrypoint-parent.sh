@@ -7,7 +7,7 @@ then
   echo "Loading values from secrets file"
   source /vault/secrets/secrets
 
-  export DATA
+  export ACS_CLIENT_URL
 
   sudo rm /vault/secrets/secrets
 fi
