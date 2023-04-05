@@ -2,7 +2,7 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: knative-go-hello
-  namespace: default
+  namespace: ufc
 spec:
   template:
     metadata:
@@ -10,7 +10,6 @@ spec:
         vault.hashicorp.com/agent-init-first: 'true'
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/agent-inject-secret-secrets: k8s_ufc_test/secrets
-        vault.hashicorp.com/agent-inject-status: injected
         vault.hashicorp.com/agent-inject-template-secrets: |
           {{ with secret "k8s_ufc_test/secrets" }}
               {{ range $k, $v := .Data }}
@@ -21,9 +20,11 @@ spec:
         vault.hashicorp.com/agent-pre-populate-only: 'true'
         vault.hashicorp.com/auth-path: auth/k8s_ufc_test
         vault.hashicorp.com/role: k8s_ufc_test
+        autoscaling.knative.dev/min-scale: "1"
     spec:
       containerConcurrency: 1
+      serviceAccountName: pbdl-microservice
       containers:
-        - image: pyaqubzade/knative-go-hello:v2.3
+        - image: pyaqubzade/knative-go-hello:v2.4.6
           ports:
             - containerPort: 8080
