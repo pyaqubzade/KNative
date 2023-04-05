@@ -18,6 +18,9 @@ RUN GOOS=linux GOARCH=amd64 go build -o app .
 ######## Start a new stage from scratch #######
 FROM alpine
 
+RUN apk update \
+    && apk add --no-cache bash
+
 # Copy the Pre-built binary file from the previous stage
 COPY --from=builder /go/src/app .
 
