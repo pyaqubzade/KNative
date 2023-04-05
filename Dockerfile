@@ -22,7 +22,6 @@ FROM alpine
 COPY --from=builder /go/src/app .
 
 COPY config/profiles/default.env ./config/profiles/
-COPY db/migrations ./db/migrations
 
 # Expose port 80 to the outside world
 EXPOSE 8080
