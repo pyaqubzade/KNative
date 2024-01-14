@@ -1,0 +1,18 @@
+@startuml
+title Application
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.Process, "Process", "Module", "", $tags="")
+  Component(Application.Application.Form, "Form", "Module", "", $tags="")
+}
+
+Rel_D(Application.Application.Process, Application.Application.Form, "uses", $tags="")
+
+SHOW_LEGEND(true)
+@enduml
